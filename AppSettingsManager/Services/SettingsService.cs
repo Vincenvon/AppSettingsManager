@@ -1,20 +1,27 @@
 ﻿using AppSettingsManager.Models;
 
-using System;
-using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
 
 namespace AppSettingsManager.Services
 {
     public class SettingsService : ISettingsService
     {
-        public Task<SettingModel> ReadAsync()
+        public SettingModel Read()
         {
-            throw new NotImplementedException();
+            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "appsettings.json");
+            var text = System.IO.File.ReadAllText(filePath);
+            return new SettingModel
+            {
+                Json = text
+            };
         }
 
-        public Task<SettingModel> UpdateAsync(SettingModel setting)
+        public SettingModel Update(SettingModel setting)
         {
-            throw new NotImplementedException();
+            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "appsettings.json");
+            System.IO.File.WriteAllText(filePath, setting.Json);
+            return setting;
         }
     }
 }

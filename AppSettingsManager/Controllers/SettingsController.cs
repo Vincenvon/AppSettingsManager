@@ -1,11 +1,13 @@
-﻿using AppSettingsManager.Services;
+﻿using AppSettingsManager.Models;
+using AppSettingsManager.Services;
 
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppSettingsManager.Controllers
 {
     [ApiController]
-    public class SettingsController: Controller
+    [Route("api/[controller]")]
+    public class SettingsController : Controller
     {
         private readonly ISettingsService _settingsService;
 
@@ -14,23 +16,16 @@ namespace AppSettingsManager.Controllers
             _settingsService = settingsService;
         }
 
-        //public async Task<IActionResult> Index()
-        //{
-        //    var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "appsettings.json");
-        //    var text = await System.IO.File.ReadAllTextAsync(filePath);
+        [HttpGet]
+        public IActionResult Read()
+        {
+            return Ok(_settingsService.Read());
+        }
 
-        //    return View(new Model
-        //    {
-        //        Json = text
-        //    });
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> Post(Model model)
-        //{
-        //    var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "appsettings.json");
-        //    await System.IO.File.WriteAllTextAsync(filePath, model.Json);
-        //    return Ok();
-        //}
+        [HttpPost]
+        public IActionResult Update(SettingModel model)
+        {
+            return Ok(_settingsService.Update(model));
+        }
     }
 }

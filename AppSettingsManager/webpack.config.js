@@ -7,7 +7,7 @@ module.exports = {
     devtool: productionMode ? false : 'source-map',
     mode: productionMode ? 'production' : 'development',
     entry: {
-        application: ['./src/index.js'],
+        application: ['@babel/polyfill', './src/index.js'],
     },
     output: {
         path: path.join(__dirname, '/AppSettingsManagerContent/js/'),

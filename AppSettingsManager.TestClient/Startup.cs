@@ -20,13 +20,15 @@ namespace AppSettingsManager.TestClient
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddAppSettingsManager();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseAppSettingsManager();
-            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
