@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,10 +25,14 @@
 
   <ItemGroup>
     <Folder Include="AppSettingsManagerContent\js\" />
+    <Folder Include="AppSettingsManagerContent\images\" />
     <Folder Include="src\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="AppSettingsManagerContent\images\15f2789dd231f36d43a4839306b3a2cb.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="AppSettingsManagerContent\index.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
+using System;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace AppSettingsManager
         {
             var requestUrl = httpContext.Request.Path.Value;
 
-            if (requestUrl.Contains(this._appSettingsManagerOptions.AppSettingsManagerUrl))
+            if (requestUrl.Equals(this._appSettingsManagerOptions.AppSettingsManagerUrl, StringComparison.InvariantCultureIgnoreCase))
             {
                 await WriteResponseAsync(httpContext);
             }

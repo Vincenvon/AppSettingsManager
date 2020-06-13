@@ -1,27 +1,38 @@
-import { connect } from 'react-redux'
-import React, { useEffect } from 'react';
-import * as S from './styled';
-import { settingsReadStart, settingsUpdateStart, settingsValueChanged } from 'root/redux/actionCreators/settings';
+import JSONEditor from 'jsoneditor';
+import 'jsoneditor/dist/jsoneditor.css';
+import React, { useEffect, useMemo, useRef } from 'react';
+import { connect } from 'react-redux';
 import { Loader, ReloadButton, SubmitButton } from 'root/components';
+import { settingsReadStart, settingsUpdateStart } from 'root/redux/actionCreators/settings';
+import * as S from './styled';
 
-const Settings = ({ isLoading, data, settingsReadStart, settingsUpdateStart, settingsValueChanged }) => {
+const Settings = ({ isLoading, data, settingsReadStart, settingsUpdateStart }) => {
+    const jsonEditorContainerRef = useRef(null);
+
+    const jsonEditor = useMemo(() => {
+        return jsonEditorContainerRef.current ? new JSONEditor(jsonEditorContainerRef.current, { mode: 'tree', }) :
+            null;
+    }, [jsonEditorContainerRef.current]);
+
     useEffect(() => {
         settingsReadStart();
+        return () => jsonEditor && jsonEditor.destroy();
     }, []);
 
-    const handleJsonChanged = e => {
-        settingsValueChanged({ value: e.target.value });
-    };
+    useEffect(() => {
+        jsonEditor && jsonEditor.set(data.json ? JSON.parse(data.json) : {});
+    }, [data, jsonEditor]);
 
     const handleSubmitClick = () => {
-        settingsUpdateStart({ data });
+        const json = jsonEditor.get();
+        settingsUpdateStart({ data: { json: JSON.stringify(json) } });
     };
 
     return (
         <S.Page>
             {isLoading && <Loader />}
             <S.TextAreaContainer>
-                <S.TextArea value={data && data.json} placeholder="Nothing to show here" onChange={handleJsonChanged} />
+                <S.JsonEditorContainer ref={jsonEditorContainerRef} />
             </S.TextAreaContainer>
             <S.ButtonsContainer>
                 <ReloadButton onClick={settingsReadStart} />
@@ -39,7 +50,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = ({
     settingsReadStart,
     settingsUpdateStart,
-    settingsValueChanged,
 });
 
 export default connect(

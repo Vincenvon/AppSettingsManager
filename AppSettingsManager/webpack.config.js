@@ -10,7 +10,7 @@ module.exports = {
         application: ['@babel/polyfill', './src/index.js'],
     },
     output: {
-        path: path.join(__dirname, '/AppSettingsManagerContent/js/'),
+        path: path.join(__dirname, '/appsettingsmanagercontent/js/'),
         filename: '[name].js',
     },
     resolve: {
@@ -51,16 +51,20 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'less-loader'],
             },
             {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            },
+            {
                 test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [
-                    'file-loader',
                     {
-                        loader: 'image-webpack-loader',
+                        loader: "file-loader",
                         options: {
-                            bypassOnDebug: true, // webpack@1.x
-                            disable: true, // webpack@2.x and newer
-                        },
-                    },
+                            esModule: false,
+                            publicPath: "appsettingsmanagercontent/images",
+                            outputPath: "../images",
+                        }
+                    }
                 ],
             },
         ],

@@ -12,7 +12,7 @@ export const TextAreaContainer = styled.div`
     width: 100%;
 `
 
-export const TextArea = styled.textarea`
+export const JsonEditorContainer = styled.div`
     height: 100%;
     width: 100%;
     overflow: auto;

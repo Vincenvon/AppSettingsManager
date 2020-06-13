@@ -19,5 +19,5 @@ export const ContentContainer = styled.div`
 
 export const Title = styled.h2`
     margin: 0;
-    color: white;
+    color: #008CBA;
 `;

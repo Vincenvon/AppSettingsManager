@@ -14,8 +14,8 @@ function* readStart() {
 
 function* updateStart({ data }) {
     try {
-        const updateData = yield call(apis.settings.update, data);
-        yield put(settingsUpdateSuccess({ data: updateData }));
+        const { data: updatedData } = yield call(apis.settings.update, data);
+        yield put(settingsUpdateSuccess({ data: updatedData }));
     } catch (error) {
         yield put(settingsUpdateFailed({ error }));
     }
