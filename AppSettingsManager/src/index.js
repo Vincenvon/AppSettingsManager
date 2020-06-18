@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import Layout from './layout';
 import { store } from './redux';
+import { HashRouter } from 'react-router-dom';
 
 const render = () => {
     ReactDOM.render(
         <Provider store={store}>
-            <Layout />
+            <HashRouter>
+                <Layout />
+            </HashRouter>
         </Provider>,
         document.getElementById('application'),
     );

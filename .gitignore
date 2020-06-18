@@ -7,3 +7,6 @@ AppSettingsManager/package-lock.json
 AppSettingsManager.TestClient/bin
 AppSettingsManager.TestClient/obj
 AppSettingsManager/AppSettingsManagerContent/images
+AppSettingsManager/AsmContent/images
+AppSettingsManager/AsmContent/js
+AppSettingsManager.TestClient/AsmDb

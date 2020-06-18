@@ -10,7 +10,7 @@ module.exports = {
         application: ['@babel/polyfill', './src/index.js'],
     },
     output: {
-        path: path.join(__dirname, '/appsettingsmanagercontent/js/'),
+        path: path.join(__dirname, '/asmcontent/js/'),
         filename: '[name].js',
     },
     resolve: {
@@ -61,7 +61,7 @@ module.exports = {
                         loader: "file-loader",
                         options: {
                             esModule: false,
-                            publicPath: "appsettingsmanagercontent/images",
+                            publicPath: "asmcontent/images",
                             outputPath: "../images",
                         }
                     }
