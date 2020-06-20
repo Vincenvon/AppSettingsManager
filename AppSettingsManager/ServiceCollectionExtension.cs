@@ -1,4 +1,8 @@
-﻿using AppSettingsManager.Services;
+﻿using AppSettingsManager.DataAccess;
+using AppSettingsManager.Entity;
+using AppSettingsManager.Services;
+
+using LiteDB;
 
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,7 +12,17 @@ namespace AppSettingsManager
     {
         public static IServiceCollection AddAppSettingsManager(this IServiceCollection services)
         {
-            return services.AddScoped<ISettingsService, SettingsService>();
+            return services
+                .AddAppSettingsManager(new AppSettingsManagerOptions());
+        }
+
+        public static IServiceCollection AddAppSettingsManager(this IServiceCollection services, AppSettingsManagerOptions appSettingsManagerOptions)
+        {
+            return services
+                .AddScoped<ILiteDatabase>(s => new LiteDatabase(appSettingsManagerOptions.DbPath))
+                .AddScoped<IRepository<Setting>, SettingsRepository>()
+                .AddScoped<ISettingsService, SettingsService>()
+                .AddScoped<IHistoryService, HistoryService>();
         }
     }
 }

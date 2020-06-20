@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="LiteDB" Version="5.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
@@ -24,22 +25,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AppSettingsManagerContent\js\" />
-    <Folder Include="AppSettingsManagerContent\images\" />
     <Folder Include="src\" />
+    <Folder Include="AsmDb\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="AppSettingsManagerContent\images\15f2789dd231f36d43a4839306b3a2cb.svg">
+    <None Update="AsmContent\images\15f2789dd231f36d43a4839306b3a2cb.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="AppSettingsManagerContent\index.html">
+    <None Update="AsmContent\index.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="AppSettingsManagerContent\js\application.js">
+    <None Update="AsmContent\js\application.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="AppSettingsManagerContent\js\application.js.map">
+    <None Update="AsmContent\js\application.js.map">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

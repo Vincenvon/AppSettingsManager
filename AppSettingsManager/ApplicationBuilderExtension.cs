@@ -19,9 +19,9 @@ namespace AppSettingsManager
                 .UseStaticFiles(new StaticFileOptions
                 {
                     FileProvider = new PhysicalFileProvider(
-                         Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "AppSettingsManagerContent")
+                         Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "AsmContent")
                         ),
-                    RequestPath = "/appsettingsmanagercontent"
+                    RequestPath = "/asmcontent"
                 })
                 .UseMiddleware<AppSettingsManagerMiddleware>(appSettingsManagerOptions);
             return applicationBuilder;
