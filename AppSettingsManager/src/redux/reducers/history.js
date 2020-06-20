@@ -2,11 +2,17 @@ import {
     HISTORY_READ_START,
     HISTORY_READ_SUCCESS,
     HISTORY_READ_FAILED,
+    HISTORY_GRID_STATE_CHANGED,
 } from '../actions/history';
 
 const initialState = {
     data: {},
     isLoading: false,
+    gridState: {
+        page: 1,
+        pageSize: 20,
+        sort: {},
+    },
 };
 
 export const history = (state = initialState, action) => {
@@ -15,6 +21,7 @@ export const history = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: true,
+                gridState: action.gridState,
             };
         case HISTORY_READ_SUCCESS:
             return {
@@ -26,6 +33,11 @@ export const history = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
+            };
+        case HISTORY_GRID_STATE_CHANGED:
+            return {
+                ...state,
+                gridState: action.gridState,
             };
         default:
             return state

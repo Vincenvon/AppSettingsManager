@@ -1,5 +1,8 @@
 ﻿using AppSettingsManager.DataAccess;
 using AppSettingsManager.Entity;
+using AppSettingsManager.Models;
+
+using LiteDB;
 
 using System;
 using System.Collections.Generic;
@@ -17,9 +20,27 @@ namespace AppSettingsManager.Services
             _settingRepository = settingRepository;
         }
 
-        public ICollection<Setting> Read()
+        public GridResponseModel<Setting> Read(GridRequestModel gridRequestModel)
         {
-            return _settingRepository.Read().ToList();
+            Query query = null;
+
+            if (gridRequestModel.Sort != null 
+                && !string.IsNullOrEmpty(gridRequestModel.Sort.Name)
+                && !string.IsNullOrEmpty(gridRequestModel.Sort.Direction))
+            {
+                var order = gridRequestModel.Sort.Direction.Equals("desc", StringComparison.OrdinalIgnoreCase) ? Query.Descending :
+                    Query.Ascending;
+
+                query = Query.All(gridRequestModel.Sort.Name, order);
+            }
+
+            query = query ?? Query.All();
+
+            return new GridResponseModel<Setting>
+            {
+                Data = _settingRepository.Read(query, gridRequestModel.Page - 1, gridRequestModel.PageSize).ToArray(),
+                Total = _settingRepository.Count(query)
+            };
         }
     }
 }

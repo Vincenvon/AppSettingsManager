@@ -1,4 +1,5 @@
 ﻿using AppSettingsManager.Entity;
+using AppSettingsManager.Models;
 
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,6 @@ namespace AppSettingsManager.Services
 {
     public interface IHistoryService
     {
-        ICollection<Setting> Read(); 
+        GridResponseModel<Setting> Read(GridRequestModel gridRequestModel);
     }
 }

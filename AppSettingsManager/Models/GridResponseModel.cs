@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AppSettingsManager.Models
 {
-    public class GridModel<T>
+    public class GridResponseModel<T>
     {
         public int Total { get; set; }
 

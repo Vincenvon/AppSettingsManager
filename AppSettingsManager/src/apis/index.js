@@ -7,6 +7,6 @@ export const apis = {
     },
 
     history: {
-        read: () => axios.get('api/history'),
+        read: gridState => axios.post('api/history', gridState),
     }
 }; 

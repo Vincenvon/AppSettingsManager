@@ -1,7 +1,9 @@
 ﻿using AppSettingsManager.Entity;
 using AppSettingsManager.Models;
 using AppSettingsManager.Services;
+
 using Microsoft.AspNetCore.Mvc;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,15 +22,11 @@ namespace AppSettingsManager.Controllers
             _historyService = historyService;
         }
 
-        [HttpGet]
-        public IActionResult Read()
+        [HttpPost]
+        public IActionResult Read([FromBody]GridRequestModel gridRequestModel)
         {
-            var data = _historyService.Read();
-            return Ok(new GridModel<Setting>
-            {
-                Data = data.ToArray(),
-                Total = data.Count
-            });
+            var data = _historyService.Read(gridRequestModel);
+            return Ok(data);
         }
     }
 }
