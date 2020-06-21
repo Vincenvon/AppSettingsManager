@@ -2,10 +2,16 @@
 {
     public class AppSettingsManagerOptions
     {
+        public string AppSettingsFileName { get; set; } = "appsettings.json";
+
+        public string AppSettingsFilePath { get; set; } = "./";
+
         public string AppSettingsManagerUrl { get; set; } = "/appsettings";
 
-        public string[] ExcludedSettings { get; set; }
+        public string DbFileName { get; set; } = "AsmDb.db";
 
-        public string DbPath { get; set; } = "./AsmDb/AsmDb.db";
+        public string DbFilePath { get; set; } = "./AsmDb";
+
+        public string[] ExcludedSettings { get; set; }
     }
 }

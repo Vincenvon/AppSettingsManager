@@ -10,16 +10,19 @@ namespace AppSettingsManager.Services
 {
     public class SettingsService : ISettingsService
     {
+        private readonly AppSettingsManagerOptions _appSettingsManagerOptions;
+        
         private readonly IRepository<Setting> _repository;
 
-        public SettingsService(IRepository<Setting> repository)
+        public SettingsService(IRepository<Setting> repository, AppSettingsManagerOptions appSettingsManagerOptions)
         {
             _repository = repository;
+            _appSettingsManagerOptions = appSettingsManagerOptions;
         }
 
         public SettingModel Read()
         {
-            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "appsettings.json");
+            var filePath = Path.Combine(_appSettingsManagerOptions.AppSettingsFilePath, _appSettingsManagerOptions.AppSettingsFileName);
             var text = System.IO.File.ReadAllText(filePath);
             return new SettingModel
             {
@@ -29,7 +32,7 @@ namespace AppSettingsManager.Services
 
         public SettingModel Update(SettingModel setting)
         {
-            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "appsettings.json");
+            var filePath = Path.Combine(_appSettingsManagerOptions.AppSettingsFilePath, _appSettingsManagerOptions.AppSettingsFileName);
             System.IO.File.WriteAllText(filePath, setting.Json);
 
             _repository.Create(new Setting
