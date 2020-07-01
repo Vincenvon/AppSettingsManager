@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AppSettingsManager.Settings;
+
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.FileProviders;
 
 using System.IO;
@@ -10,10 +12,10 @@ namespace AppSettingsManager
     {
         public static IApplicationBuilder UseAppSettingsManager(this IApplicationBuilder applicationBuilder)
         {
-            return applicationBuilder.UseAppSettingsManager(new AppSettingsManagerOptions());
+            return applicationBuilder.UseAppSettingsManager(new AppSettingsManagerSetting());
         }
 
-        public static IApplicationBuilder UseAppSettingsManager(this IApplicationBuilder applicationBuilder, AppSettingsManagerOptions appSettingsManagerOptions)
+        public static IApplicationBuilder UseAppSettingsManager(this IApplicationBuilder applicationBuilder, AppSettingsManagerSetting appSettingsManagerOptions)
         {
             applicationBuilder
                 .UseStaticFiles(new StaticFileOptions

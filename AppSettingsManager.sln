@@ -3,9 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager", "AppSettingsManager\AppSettingsManager.csproj", "{456F2F49-C260-46FD-9A0F-357AB5D1DE5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppSettingsManager", "AppSettingsManager\AppSettingsManager.csproj", "{456F2F49-C260-46FD-9A0F-357AB5D1DE5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.TestClient", "AppSettingsManager.TestClient\AppSettingsManager.TestClient.csproj", "{7CE61603-F8CC-4B85-AE09-CA83622E31A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppSettingsManager.TestClient", "AppSettingsManager.TestClient\AppSettingsManager.TestClient.csproj", "{7CE61603-F8CC-4B85-AE09-CA83622E31A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager461", "AppSettingsManager461\AppSettingsManager461.csproj", "{53827E55-7FFD-4D5E-99DC-8A58BDD6CEBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.UI", "AppSettingsManager.UI\AppSettingsManager.UI.csproj", "{EF283DAE-90DF-4924-BA20-6EC97FADB74B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.DataAccess", "AppSettingsManager.DataAccess\AppSettingsManager.DataAccess.csproj", "{6B62B46A-75B9-4018-9842-258A062F3BDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.Entities", "AppSettingsManager.Entities\AppSettingsManager.Entities.csproj", "{EF82EEDC-808D-4E10-8E74-245E5650D6B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.Responses", "AppSettingsManager.Responses\AppSettingsManager.Responses.csproj", "{7D16DD44-399C-4BAC-8CB9-5329466CA259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.Requests", "AppSettingsManager.Requests\AppSettingsManager.Requests.csproj", "{3C5D3265-34EE-475A-9F17-BBAD3F675E66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.Settings", "AppSettingsManager.Settings\AppSettingsManager.Settings.csproj", "{E2D3166D-BAD2-45F7-A575-B3AF1CA7AEF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.Services", "AppSettingsManager.Services\AppSettingsManager.Services.csproj", "{1DCA8954-8CDF-48C3-B612-CBD21294EBDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +37,38 @@ Global
 		{7CE61603-F8CC-4B85-AE09-CA83622E31A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CE61603-F8CC-4B85-AE09-CA83622E31A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CE61603-F8CC-4B85-AE09-CA83622E31A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53827E55-7FFD-4D5E-99DC-8A58BDD6CEBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53827E55-7FFD-4D5E-99DC-8A58BDD6CEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53827E55-7FFD-4D5E-99DC-8A58BDD6CEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53827E55-7FFD-4D5E-99DC-8A58BDD6CEBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF283DAE-90DF-4924-BA20-6EC97FADB74B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF283DAE-90DF-4924-BA20-6EC97FADB74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF283DAE-90DF-4924-BA20-6EC97FADB74B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF283DAE-90DF-4924-BA20-6EC97FADB74B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B62B46A-75B9-4018-9842-258A062F3BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B62B46A-75B9-4018-9842-258A062F3BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B62B46A-75B9-4018-9842-258A062F3BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B62B46A-75B9-4018-9842-258A062F3BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF82EEDC-808D-4E10-8E74-245E5650D6B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF82EEDC-808D-4E10-8E74-245E5650D6B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF82EEDC-808D-4E10-8E74-245E5650D6B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF82EEDC-808D-4E10-8E74-245E5650D6B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D16DD44-399C-4BAC-8CB9-5329466CA259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D16DD44-399C-4BAC-8CB9-5329466CA259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D16DD44-399C-4BAC-8CB9-5329466CA259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D16DD44-399C-4BAC-8CB9-5329466CA259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C5D3265-34EE-475A-9F17-BBAD3F675E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C5D3265-34EE-475A-9F17-BBAD3F675E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C5D3265-34EE-475A-9F17-BBAD3F675E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C5D3265-34EE-475A-9F17-BBAD3F675E66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2D3166D-BAD2-45F7-A575-B3AF1CA7AEF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2D3166D-BAD2-45F7-A575-B3AF1CA7AEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2D3166D-BAD2-45F7-A575-B3AF1CA7AEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2D3166D-BAD2-45F7-A575-B3AF1CA7AEF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DCA8954-8CDF-48C3-B612-CBD21294EBDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DCA8954-8CDF-48C3-B612-CBD21294EBDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DCA8954-8CDF-48C3-B612-CBD21294EBDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DCA8954-8CDF-48C3-B612-CBD21294EBDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

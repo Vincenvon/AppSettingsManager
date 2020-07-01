@@ -1,4 +1,4 @@
-﻿using AppSettingsManager.Models;
+﻿using AppSettingsManager.Requests;
 using AppSettingsManager.Services;
 
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +23,7 @@ namespace AppSettingsManager.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(SettingModel model)
+        public IActionResult Update(SettingRequest model)
         {
             return Ok(_settingsService.Update(model));
         }

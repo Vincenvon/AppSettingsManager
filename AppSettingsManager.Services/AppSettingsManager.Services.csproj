@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AppSettingsManager.DataAccess\AppSettingsManager.DataAccess.csproj" />
+    <ProjectReference Include="..\AppSettingsManager.Entities\AppSettingsManager.Entities.csproj" />
+    <ProjectReference Include="..\AppSettingsManager.Requests\AppSettingsManager.Requests.csproj" />
+    <ProjectReference Include="..\AppSettingsManager.Responses\AppSettingsManager.Responses.csproj" />
+    <ProjectReference Include="..\AppSettingsManager.Settings\AppSettingsManager.Settings.csproj" />
+  </ItemGroup>
+
+</Project>
