@@ -45,7 +45,7 @@ namespace AppSettingsManager
             context.Response.ContentType = "text/html";
 
             var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
-                "AsmContent/index.html");
+                @"AsmContent\index.html");
             var indexFile = File.ReadAllText(filePath);
             return context.Response.WriteAsync(indexFile);
         }

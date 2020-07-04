@@ -1,25 +1,38 @@
-﻿using AppSettingsManager.DataAccess;
-using AppSettingsManager.Entities;
-using AppSettingsManager.Settings;
+﻿using AppSettingsManager.Settings;
 
+using System;
+using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 
 namespace AppSettingsManager461
 {
     public static class AppSettingsManagerConfiguration
     {
-        public static HttpConfiguration ConfigureAppSettingsManager(this HttpConfiguration httpConfiguration, AppSettingsManagerSetting appSettingsManagerOptions)
+        public static HttpConfiguration ConfigureAppSettingsManager(this HttpConfiguration httpConfiguration)
         {
-            var services = httpConfiguration.Services;
+            return httpConfiguration.ConfigureAppSettingsManager(new AppSettingsManagerSetting {
+                DbFilePath = $"{AppDomain.CurrentDomain.BaseDirectory}\\AsmDb"
+            });
+        }
 
-            services.Add(typeof(AppSettingsManagerSetting), appSettingsManagerOptions);
-            services.Add(typeof(IRepository<Setting>), new SettingsRepository(appSettingsManagerOptions.DbFilePath, appSettingsManagerOptions.DbFileName));
+        public static HttpConfiguration ConfigureAppSettingsManager(
+            this HttpConfiguration httpConfiguration,
+            AppSettingsManagerSetting appSettingsManagerOptions)
+        {
+            httpConfiguration.Routes.MapHttpRoute(
+                name: "AppSettingsRoute",
+                routeTemplate: "appsettings",
+                defaults: null,
+                constraints: null,
+                handler: HttpClientFactory.CreatePipeline(
+                          new HttpControllerDispatcher(httpConfiguration),
+                          new DelegatingHandler[] { new AppSettingsManagerHandler(appSettingsManagerOptions) })
+                );
 
-            return services
-                .AddScoped<AppSettingsManagerSetting>(s => appSettingsManagerOptions)
-                .AddScoped<>(s => )
-                .AddScoped<ISettingsService, SettingsService>()
-                .AddScoped<IHistoryService, HistoryService>();
+            SettingsProvider.Setting = appSettingsManagerOptions;
+
+            return httpConfiguration;
         }
     }
 }

@@ -27,3 +27,9 @@ AppSettingsManager461/obj
 packages
 AppSettingsManager.Entities/bin
 AppSettingsManager.Entities/obj
+AppSettingsManager461.TestClient/bin
+AppSettingsManager461.TestClient/Content
+AppSettingsManager461.TestClient/obj
+AppSettingsManager461.TestClient/fonts
+AppSettingsManager461.TestClient/Scripts
+*.user

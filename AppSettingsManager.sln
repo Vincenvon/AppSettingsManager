@@ -9,19 +9,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppSettingsManager.TestClie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager461", "AppSettingsManager461\AppSettingsManager461.csproj", "{53827E55-7FFD-4D5E-99DC-8A58BDD6CEBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.UI", "AppSettingsManager.UI\AppSettingsManager.UI.csproj", "{EF283DAE-90DF-4924-BA20-6EC97FADB74B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppSettingsManager.UI", "AppSettingsManager.UI\AppSettingsManager.UI.csproj", "{EF283DAE-90DF-4924-BA20-6EC97FADB74B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.DataAccess", "AppSettingsManager.DataAccess\AppSettingsManager.DataAccess.csproj", "{6B62B46A-75B9-4018-9842-258A062F3BDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppSettingsManager.DataAccess", "AppSettingsManager.DataAccess\AppSettingsManager.DataAccess.csproj", "{6B62B46A-75B9-4018-9842-258A062F3BDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.Entities", "AppSettingsManager.Entities\AppSettingsManager.Entities.csproj", "{EF82EEDC-808D-4E10-8E74-245E5650D6B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppSettingsManager.Entities", "AppSettingsManager.Entities\AppSettingsManager.Entities.csproj", "{EF82EEDC-808D-4E10-8E74-245E5650D6B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.Responses", "AppSettingsManager.Responses\AppSettingsManager.Responses.csproj", "{7D16DD44-399C-4BAC-8CB9-5329466CA259}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppSettingsManager.Responses", "AppSettingsManager.Responses\AppSettingsManager.Responses.csproj", "{7D16DD44-399C-4BAC-8CB9-5329466CA259}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.Requests", "AppSettingsManager.Requests\AppSettingsManager.Requests.csproj", "{3C5D3265-34EE-475A-9F17-BBAD3F675E66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppSettingsManager.Requests", "AppSettingsManager.Requests\AppSettingsManager.Requests.csproj", "{3C5D3265-34EE-475A-9F17-BBAD3F675E66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.Settings", "AppSettingsManager.Settings\AppSettingsManager.Settings.csproj", "{E2D3166D-BAD2-45F7-A575-B3AF1CA7AEF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppSettingsManager.Settings", "AppSettingsManager.Settings\AppSettingsManager.Settings.csproj", "{E2D3166D-BAD2-45F7-A575-B3AF1CA7AEF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager.Services", "AppSettingsManager.Services\AppSettingsManager.Services.csproj", "{1DCA8954-8CDF-48C3-B612-CBD21294EBDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppSettingsManager.Services", "AppSettingsManager.Services\AppSettingsManager.Services.csproj", "{1DCA8954-8CDF-48C3-B612-CBD21294EBDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsManager461.TestClient", "AppSettingsManager461.TestClient\AppSettingsManager461.TestClient.csproj", "{674C9F62-A767-4802-8896-8629425B0D71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{1DCA8954-8CDF-48C3-B612-CBD21294EBDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DCA8954-8CDF-48C3-B612-CBD21294EBDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DCA8954-8CDF-48C3-B612-CBD21294EBDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{674C9F62-A767-4802-8896-8629425B0D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{674C9F62-A767-4802-8896-8629425B0D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{674C9F62-A767-4802-8896-8629425B0D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{674C9F62-A767-4802-8896-8629425B0D71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

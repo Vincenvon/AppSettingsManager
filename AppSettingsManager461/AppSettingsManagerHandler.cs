@@ -4,14 +4,13 @@ using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
-using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace AppSettingsManager461
 {
-    public class AppSettingsManagerHandler: DelegatingHandler
+    public class AppSettingsManagerHandler : DelegatingHandler
     {
         private readonly AppSettingsManagerSetting _appSettingsManagerSetting;
 
@@ -38,8 +37,7 @@ namespace AppSettingsManager461
 
         private static HttpResponseMessage CreateResponse(HttpRequestMessage request)
         {
-            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
-                "AsmContent/index.html");
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"AsmContent\index.html");
             var indexFile = File.ReadAllText(filePath);
             var response = request.CreateResponse(HttpStatusCode.OK);
 

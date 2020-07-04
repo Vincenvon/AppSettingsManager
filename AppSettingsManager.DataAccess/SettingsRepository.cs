@@ -11,48 +11,68 @@ namespace AppSettingsManager.DataAccess
 {
     public class SettingsRepository : IRepository<Setting>
     {
-        private readonly ILiteDatabase _liteDatabase;
+        private readonly string _connectionString;
 
         public SettingsRepository(string dbFilePath, string dbFileName)
         {
             var dbPath = Path.Combine(dbFilePath, dbFileName);
 
-            _liteDatabase = new LiteDatabase(dbPath);
+            _connectionString = $"Filename={dbPath}; Connection=shared";
         }
 
         public IEnumerable<Setting> Read()
         {
-            return _liteDatabase.GetCollection<Setting>().FindAll();
+            using (var liteDatabase = this.GetLiteDatabase())
+            {
+                return liteDatabase.GetCollection<Setting>().FindAll();
+            }
         }
 
         public IEnumerable<Setting> Read(Expression<Func<Setting, bool>> expression, int skip, int limit)
         {
-            return _liteDatabase.GetCollection<Setting>().Find(expression, skip, limit);
+            using (var liteDatabase = this.GetLiteDatabase())
+            {
+                return liteDatabase.GetCollection<Setting>().Find(expression, skip, limit);
+            }
         }
 
         public IEnumerable<Setting> Read(Query query, int skip, int limit)
         {
-            var collection = _liteDatabase.GetCollection<Setting>();
-
-            if (query.OrderBy != null && query.OrderBy.Fields != null)
+            using (var liteDatabase = this.GetLiteDatabase())
             {
-                foreach (var field in query.OrderBy.Fields)
+                var collection = liteDatabase.GetCollection<Setting>();
+
+                if (query.OrderBy != null && query.OrderBy.Fields != null)
                 {
-                    collection.EnsureIndex(field, $"$.{field}");
+                    foreach (var field in query.OrderBy.Fields)
+                    {
+                        collection.EnsureIndex(field, $"$.{field}");
+                    }
                 }
+                return collection.Find(query, skip, limit);
             }
-            return collection.Find(query, skip, limit);
         }
 
         public Setting Create(Setting setting)
         {
-            setting.Id = _liteDatabase.GetCollection<Setting>().Insert(setting).AsInt32;
-            return setting;
+            using (var liteDatabase = this.GetLiteDatabase())
+            {
+                setting.Id = liteDatabase.GetCollection<Setting>().Insert(setting).AsInt32;
+                return setting;
+            }
         }
 
         public int Count(Query query)
         {
-            return _liteDatabase.GetCollection<Setting>().Count(query);
+            using (var liteDatabase = this.GetLiteDatabase())
+            {
+                return liteDatabase.GetCollection<Setting>().Count(query);
+            }
+        }
+
+        private ILiteDatabase GetLiteDatabase()
+        {
+            return new LiteDatabase(_connectionString);
         }
     }
 }
