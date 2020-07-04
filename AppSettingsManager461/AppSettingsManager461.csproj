@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{53827E55-7FFD-4D5E-99DC-8A58BDD6CEBE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppSettingsManager461</RootNamespace>
+    <AssemblyName>AppSettingsManager461</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LiteDB, Version=5.0.8.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.5.0.8\lib\net45\LiteDB.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppSettingsManagerConfiguration.cs" />
+    <Compile Include="AppSettingsManagerHandler.cs" />
+    <Compile Include="Controllers\HistoryController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppSettingsManager.DataAccess\AppSettingsManager.DataAccess.csproj">
+      <Project>{6B62B46A-75B9-4018-9842-258A062F3BDA}</Project>
+      <Name>AppSettingsManager.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppSettingsManager.Entities\AppSettingsManager.Entities.csproj">
+      <Project>{EF82EEDC-808D-4E10-8E74-245E5650D6B2}</Project>
+      <Name>AppSettingsManager.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppSettingsManager.Requests\AppSettingsManager.Requests.csproj">
+      <Project>{3C5D3265-34EE-475A-9F17-BBAD3F675E66}</Project>
+      <Name>AppSettingsManager.Requests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppSettingsManager.Responses\AppSettingsManager.Responses.csproj">
+      <Project>{7D16DD44-399C-4BAC-8CB9-5329466CA259}</Project>
+      <Name>AppSettingsManager.Responses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppSettingsManager.Services\AppSettingsManager.Services.csproj">
+      <Project>{1DCA8954-8CDF-48C3-B612-CBD21294EBDF}</Project>
+      <Name>AppSettingsManager.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppSettingsManager.Settings\AppSettingsManager.Settings.csproj">
+      <Project>{E2D3166D-BAD2-45F7-A575-B3AF1CA7AEF6}</Project>
+      <Name>AppSettingsManager.Settings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppSettingsManager.UI\AppSettingsManager.UI.csproj">
+      <Project>{ef283dae-90df-4924-ba20-6ec97fadb74b}</Project>
+      <Name>AppSettingsManager.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

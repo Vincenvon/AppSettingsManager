@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AppSettingsManager.Settings;
+
+using Microsoft.AspNetCore.Http;
 
 using System;
 using System.IO;
@@ -9,10 +11,10 @@ namespace AppSettingsManager
 {
     public class AppSettingsManagerMiddleware
     {
-        private readonly AppSettingsManagerOptions _appSettingsManagerOptions;
+        private readonly AppSettingsManagerSetting _appSettingsManagerOptions;
         private readonly RequestDelegate next;
 
-        public AppSettingsManagerMiddleware(RequestDelegate next, AppSettingsManagerOptions appSettingsManagerOptions)
+        public AppSettingsManagerMiddleware(RequestDelegate next, AppSettingsManagerSetting appSettingsManagerOptions)
         {
             this.next = next;
             this._appSettingsManagerOptions = appSettingsManagerOptions;
@@ -43,7 +45,7 @@ namespace AppSettingsManager
             context.Response.ContentType = "text/html";
 
             var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
-                "AsmContent/index.html");
+                @"AsmContent\index.html");
             var indexFile = File.ReadAllText(filePath);
             return context.Response.WriteAsync(indexFile);
         }

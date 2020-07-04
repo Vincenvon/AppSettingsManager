@@ -1,5 +1,5 @@
-﻿using AppSettingsManager.Entity;
-using AppSettingsManager.Models;
+﻿using AppSettingsManager.Entities;
+using AppSettingsManager.Requests;
 using AppSettingsManager.Services;
 
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +23,7 @@ namespace AppSettingsManager.Controllers
         }
 
         [HttpPost]
-        public IActionResult Read([FromBody]GridRequestModel gridRequestModel)
+        public IActionResult Read([FromBody]GridRequest gridRequestModel)
         {
             var data = _historyService.Read(gridRequestModel);
             return Ok(data);

@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="AsmContent\images\15f2789dd231f36d43a4839306b3a2cb.svg" />
+    <None Remove="AsmContent\index.html" />
+    <None Remove="AsmContent\js\application.js" />
+    <None Remove="AsmContent\js\application.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="AsmContent\images\15f2789dd231f36d43a4839306b3a2cb.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AsmContent\index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AsmContent\js\application.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AsmContent\js\application.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
