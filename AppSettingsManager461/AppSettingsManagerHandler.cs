@@ -12,9 +12,9 @@ namespace AppSettingsManager461
 {
     public class AppSettingsManagerHandler : DelegatingHandler
     {
-        private readonly AppSettingsManagerSetting _appSettingsManagerSetting;
+        private readonly Settings _appSettingsManagerSetting;
 
-        public AppSettingsManagerHandler(AppSettingsManagerSetting appSettingsManagerSetting)
+        public AppSettingsManagerHandler(Settings appSettingsManagerSetting)
         {
             this._appSettingsManagerSetting = appSettingsManagerSetting;
         }
@@ -24,7 +24,7 @@ namespace AppSettingsManager461
         {
             var requestUrl = request.RequestUri.LocalPath;
 
-            if (requestUrl.Equals(this._appSettingsManagerSetting.AppSettingsManagerUrl, StringComparison.InvariantCultureIgnoreCase))
+            if (requestUrl.Equals(this._appSettingsManagerSetting.HostSettings.Url, StringComparison.InvariantCultureIgnoreCase))
             {
                 return Task.FromResult(CreateResponse(request));
             }
@@ -35,9 +35,10 @@ namespace AppSettingsManager461
         }
 
 
-        private static HttpResponseMessage CreateResponse(HttpRequestMessage request)
+        private HttpResponseMessage CreateResponse(HttpRequestMessage request)
         {
-            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"AsmContent\index.html");
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, 
+                $"{_appSettingsManagerSetting.ContentSettings.HtmlFolderPath}\\index.html");
             var indexFile = File.ReadAllText(filePath);
             var response = request.CreateResponse(HttpStatusCode.OK);
 

@@ -6,7 +6,6 @@ using System.Web.Http;
 
 namespace AppSettingsManager461.Controllers
 {
-    [Route("api/[controller]")]
     public class SettingsController : ApiController
     {
         private readonly ISettingsService _settingsService;
@@ -14,7 +13,8 @@ namespace AppSettingsManager461.Controllers
         public SettingsController()
         {
             var setting = SettingsProvider.Setting;
-            _settingsService = new SettingsService(new SettingsRepository(setting.DbFilePath, setting.DbFileName), setting);
+            _settingsService = new SettingsService(new SettingsRepository(setting.DatabaseSettings.FolderPath,
+                setting.DatabaseSettings.FileName), setting);
         }
 
         [HttpGet]

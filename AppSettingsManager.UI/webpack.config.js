@@ -10,7 +10,7 @@ module.exports = {
         application: ['@babel/polyfill', './src/index.js'],
     },
     output: {
-        path: path.join(__dirname, '/asmcontent/js/'),
+        path: path.join(__dirname, '/content/js/'),
         filename: '[name].js',
     },
     resolve: {
@@ -61,7 +61,7 @@ module.exports = {
                         loader: "file-loader",
                         options: {
                             esModule: false,
-                            publicPath: "asmcontent/images",
+                            publicPath: "IMAGES_FOLDER_PATH",
                             outputPath: "../images",
                         }
                     }

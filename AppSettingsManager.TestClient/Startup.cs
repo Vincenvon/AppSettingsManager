@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+
+using System.IO;
 
 namespace AppSettingsManager.TestClient
 {
@@ -27,7 +30,13 @@ namespace AppSettingsManager.TestClient
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseAppSettingsManager();
+            app
+                .UseStaticFiles(new StaticFileOptions
+                {
+                    FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "AsmContent")),
+                    RequestPath = "/asmcontent"
+                })
+                .UseAppSettingsManager();
 
             if (env.IsDevelopment())
             {

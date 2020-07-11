@@ -19,7 +19,7 @@ namespace AppSettingsManager.Services
             _settingRepository = settingRepository;
         }
 
-        public GridResponse<Setting> Read(GridRequest gridRequestModel)
+        public GridResponse<SettingHistoryResponse> Read(GridRequest gridRequestModel)
         {
             Query query = null;
 
@@ -35,9 +35,14 @@ namespace AppSettingsManager.Services
 
             query = query ?? Query.All();
 
-            return new GridResponse<Setting>
+            return new GridResponse<SettingHistoryResponse>
             {
-                Data = _settingRepository.Read(query, gridRequestModel.Page - 1, gridRequestModel.PageSize).ToArray(),
+                Data = _settingRepository.Read(query, gridRequestModel.Page - 1, gridRequestModel.PageSize)
+                .Select(h => new SettingHistoryResponse {
+                    Id = h.Id,
+                    Json = h.Json,
+                    UpdatedDateTime = h.UpdatedDateTime
+                }).ToArray(),
                 Total = _settingRepository.Count(query)
             };
         }

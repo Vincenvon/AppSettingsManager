@@ -15,17 +15,15 @@ namespace AppSettingsManager
         public static IServiceCollection AddAppSettingsManager(this IServiceCollection services)
         {
             return services
-                .AddAppSettingsManager(new AppSettingsManagerSetting());
+                .AddAppSettingsManager(new Settings.Settings());
         }
 
-        public static IServiceCollection AddAppSettingsManager(this IServiceCollection services, AppSettingsManagerSetting appSettingsManagerOptions)
+        public static IServiceCollection AddAppSettingsManager(this IServiceCollection services, Settings.Settings appSettingsManagerOptions)
         {
-            if (!Directory.Exists(appSettingsManagerOptions.DbFilePath))
-                Directory.CreateDirectory(appSettingsManagerOptions.DbFilePath);
-
             return services
-                .AddScoped<AppSettingsManagerSetting>(s => appSettingsManagerOptions)
-                .AddScoped<IRepository<Setting>>(s => new SettingsRepository(appSettingsManagerOptions.DbFilePath, appSettingsManagerOptions.DbFileName))
+                .AddScoped<Settings.Settings>(s => appSettingsManagerOptions)
+                .AddScoped<IRepository<Setting>>(s => new SettingsRepository(appSettingsManagerOptions.DatabaseSettings.FolderPath,
+                appSettingsManagerOptions.DatabaseSettings.FileName))
                 .AddScoped<ISettingsService, SettingsService>()
                 .AddScoped<IHistoryService, HistoryService>();
         }

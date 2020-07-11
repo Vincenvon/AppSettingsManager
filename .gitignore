@@ -33,3 +33,6 @@ AppSettingsManager461.TestClient/obj
 AppSettingsManager461.TestClient/fonts
 AppSettingsManager461.TestClient/Scripts
 *.user
+AppSettingsManager.Setup/obj
+AppSettingsManager.Setup/bin
+AppSettingsManager.UI/node_modules
