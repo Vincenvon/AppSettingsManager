@@ -29,6 +29,7 @@
     <ProjectReference Include="..\AppSettingsManager.Responses\AppSettingsManager.Responses.csproj" />
     <ProjectReference Include="..\AppSettingsManager.Services\AppSettingsManager.Services.csproj" />
     <ProjectReference Include="..\AppSettingsManager.Settings\AppSettingsManager.Settings.csproj" />
+    <ProjectReference Include="..\AppSettingsManager.Setup\AppSettingsManager.Setup.csproj" />
     <ProjectReference Include="..\AppSettingsManager.UI\AppSettingsManager.UI.csproj" />
   </ItemGroup>
 

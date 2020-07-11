@@ -6,7 +6,6 @@ using System.Web.Http;
 
 namespace AppSettingsManager461.Controllers
 {
-    [Route("api/[controller]")]
     public class HistoryController : ApiController
     {
         private readonly IHistoryService _historyService;
@@ -14,7 +13,8 @@ namespace AppSettingsManager461.Controllers
         public HistoryController()
         {
             var setting = SettingsProvider.Setting;
-            _historyService = new HistoryService(new SettingsRepository(setting.DbFilePath, setting.DbFileName));
+            _historyService = new HistoryService(new SettingsRepository(setting.DatabaseSettings.FolderPath, 
+                setting.DatabaseSettings.FileName));
         }
 
         [HttpPost]

@@ -1,6 +1,6 @@
 ﻿using AppSettingsManager.Settings;
+using AppSettingsManager.Setup;
 
-using System;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
@@ -11,14 +11,12 @@ namespace AppSettingsManager461
     {
         public static HttpConfiguration ConfigureAppSettingsManager(this HttpConfiguration httpConfiguration)
         {
-            return httpConfiguration.ConfigureAppSettingsManager(new AppSettingsManagerSetting {
-                DbFilePath = $"{AppDomain.CurrentDomain.BaseDirectory}\\AsmDb"
-            });
+            return httpConfiguration.ConfigureAppSettingsManager(new Settings());
         }
 
         public static HttpConfiguration ConfigureAppSettingsManager(
             this HttpConfiguration httpConfiguration,
-            AppSettingsManagerSetting appSettingsManagerOptions)
+            Settings appSettingsManagerOptions)
         {
             httpConfiguration.Routes.MapHttpRoute(
                 name: "AppSettingsRoute",
@@ -30,6 +28,7 @@ namespace AppSettingsManager461
                           new DelegatingHandler[] { new AppSettingsManagerHandler(appSettingsManagerOptions) })
                 );
 
+            Setuper.SetupAsync(appSettingsManagerOptions).Wait();
             SettingsProvider.Setting = appSettingsManagerOptions;
 
             return httpConfiguration;

@@ -1,4 +1,5 @@
 ﻿using AppSettingsManager.Settings;
+using AppSettingsManager.Setup;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.FileProviders;
@@ -12,19 +13,14 @@ namespace AppSettingsManager
     {
         public static IApplicationBuilder UseAppSettingsManager(this IApplicationBuilder applicationBuilder)
         {
-            return applicationBuilder.UseAppSettingsManager(new AppSettingsManagerSetting());
+            return applicationBuilder.UseAppSettingsManager(new Settings.Settings());
         }
 
-        public static IApplicationBuilder UseAppSettingsManager(this IApplicationBuilder applicationBuilder, AppSettingsManagerSetting appSettingsManagerOptions)
+        public static IApplicationBuilder UseAppSettingsManager(this IApplicationBuilder applicationBuilder, Settings.Settings appSettingsManagerOptions)
         {
+            Setuper.SetupAsync(appSettingsManagerOptions).Wait();
+
             applicationBuilder
-                .UseStaticFiles(new StaticFileOptions
-                {
-                    FileProvider = new PhysicalFileProvider(
-                         Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "AsmContent")
-                        ),
-                    RequestPath = "/asmcontent"
-                })
                 .UseMiddleware<AppSettingsManagerMiddleware>(appSettingsManagerOptions);
             return applicationBuilder;
         }

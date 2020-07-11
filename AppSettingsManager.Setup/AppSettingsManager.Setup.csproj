@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AppSettingsManager.Settings\AppSettingsManager.Settings.csproj" />
+    <ProjectReference Include="..\AppSettingsManager.UI\AppSettingsManager.UI.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -90,10 +90,17 @@
       <Project>{E2D3166D-BAD2-45F7-A575-B3AF1CA7AEF6}</Project>
       <Name>AppSettingsManager.Settings</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AppSettingsManager.Setup\AppSettingsManager.Setup.csproj">
+      <Project>{e7d5a7e3-438f-4bde-898e-fe6d74e9e627}</Project>
+      <Name>AppSettingsManager.Setup</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AppSettingsManager.UI\AppSettingsManager.UI.csproj">
       <Project>{ef283dae-90df-4924-ba20-6ec97fadb74b}</Project>
       <Name>AppSettingsManager.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>$(ProjectDir)nuget pack "$(ProjectDir)AppSettingsManager461.csproj" -OutputDirectory "$(ProjectDir)\Package" -IncludeReferencedProjects</PostBuildEvent>
+  </PropertyGroup>
 </Project>

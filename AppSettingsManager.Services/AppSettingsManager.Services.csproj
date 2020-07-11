@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="6.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AppSettingsManager.DataAccess\AppSettingsManager.DataAccess.csproj" />
     <ProjectReference Include="..\AppSettingsManager.Entities\AppSettingsManager.Entities.csproj" />
     <ProjectReference Include="..\AppSettingsManager.Requests\AppSettingsManager.Requests.csproj" />

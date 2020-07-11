@@ -9,6 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="AsmContent\images\" />
+    <Folder Include="AsmContent\js\" />
     <Folder Include="AsmDb\" />
   </ItemGroup>
 

@@ -5,25 +5,31 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="AsmContent\images\15f2789dd231f36d43a4839306b3a2cb.svg" />
-    <None Remove="AsmContent\index.html" />
-    <None Remove="AsmContent\js\application.js" />
-    <None Remove="AsmContent\js\application.js.map" />
+    <Compile Remove="node_modules\**" />
+    <EmbeddedResource Remove="node_modules\**" />
+    <None Remove="node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="AsmContent\images\15f2789dd231f36d43a4839306b3a2cb.svg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="AsmContent\index.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="AsmContent\js\application.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="AsmContent\js\application.js.map">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Remove="Content\images\15f2789dd231f36d43a4839306b3a2cb.svg" />
+    <None Remove="Content\index.html" />
+    <None Remove="Content\js\application.js" />
+    <None Remove="Content\js\application.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Content\images\15f2789dd231f36d43a4839306b3a2cb.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\index.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\js\application.js">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\js\application.js.map">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
