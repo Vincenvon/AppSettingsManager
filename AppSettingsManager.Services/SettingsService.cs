@@ -14,12 +14,18 @@ namespace AppSettingsManager.Services
     {
         private readonly Settings.Settings _appSettingsManagerOptions;
 
+        private readonly Settings.FileContentSettings _fileContentSettings;
+
         private readonly IRepository<Setting> _repository;
 
-        public SettingsService(IRepository<Setting> repository, Settings.Settings appSettingsManagerOptions)
+        public SettingsService(
+            IRepository<Setting> repository,
+            Settings.Settings appSettingsManagerOptions,
+            Settings.FileContentSettings fileContentSettings)
         {
             _repository = repository;
             _appSettingsManagerOptions = appSettingsManagerOptions;
+            _fileContentSettings = fileContentSettings;
         }
 
         public SettingResponse Read()
@@ -27,7 +33,7 @@ namespace AppSettingsManager.Services
             var filePath = Path.Combine(_appSettingsManagerOptions.FileSettings.FilePath, _appSettingsManagerOptions.FileSettings.FileName);
             using (var stream = File.OpenRead(filePath))
             using (var streamReader = new StreamReader(stream))
-            //using (var fileReader = new JsonTextReader(streamReader))
+            using (var fileReader = new JsonTextReader(streamReader))
             {
                 // TODO :: EXCLUDE HERE
                 return new SettingResponse
@@ -52,6 +58,14 @@ namespace AppSettingsManager.Services
             {
                 Json = setting.Json
             };
+        }
+
+        public string IncludeExclude(JsonTextReader jsonTextReader)
+        {
+            while (jsonTextReader.Read())
+            {
+                var token = jsonTextReader.Value;
+            }
         }
     }
 }
