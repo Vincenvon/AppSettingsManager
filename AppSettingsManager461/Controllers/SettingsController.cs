@@ -1,4 +1,5 @@
 ﻿using AppSettingsManager.DataAccess;
+using AppSettingsManager.Entities;
 using AppSettingsManager.Requests;
 using AppSettingsManager.Services;
 
@@ -13,7 +14,7 @@ namespace AppSettingsManager461.Controllers
         public SettingsController()
         {
             var setting = SettingsProvider.Setting;
-            _settingsService = new SettingsService(new SettingsRepository(setting.DatabaseSettings.FolderPath,
+            _settingsService = new SettingsService(new Repository<Setting>(setting.DatabaseSettings.FolderPath,
                 setting.DatabaseSettings.FileName), setting);
         }
 

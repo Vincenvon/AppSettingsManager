@@ -1,6 +1,6 @@
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import { Settings, History } from 'root/pages';
+import { Settings, History, Login } from 'root/pages';
 import * as S from './styled';
 import Menu from '../layout/Menu';
 import { Route, Switch } from 'react-router-dom';
@@ -20,6 +20,7 @@ const Layout = () => {
                 <S.ContentContainer>
                     <Switch>
                         <Route path="/history" component={History} exact />
+                        <Route path="/login" component={Login} exact />
                         <Route path="/" component={Settings} exact />
                         <Route path="*" render={() => <p>Not Found</p>} />
                     </Switch>

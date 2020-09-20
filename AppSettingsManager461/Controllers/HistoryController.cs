@@ -1,4 +1,5 @@
 ﻿using AppSettingsManager.DataAccess;
+using AppSettingsManager.Entities;
 using AppSettingsManager.Requests;
 using AppSettingsManager.Services;
 
@@ -13,7 +14,7 @@ namespace AppSettingsManager461.Controllers
         public HistoryController()
         {
             var setting = SettingsProvider.Setting;
-            _historyService = new HistoryService(new SettingsRepository(setting.DatabaseSettings.FolderPath, 
+            _historyService = new HistoryService(new Repository<Setting>(setting.DatabaseSettings.FolderPath, 
                 setting.DatabaseSettings.FileName));
         }
 

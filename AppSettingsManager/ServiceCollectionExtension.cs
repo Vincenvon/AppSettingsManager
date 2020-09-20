@@ -22,7 +22,7 @@ namespace AppSettingsManager
         {
             return services
                 .AddScoped<Settings.Settings>(s => appSettingsManagerOptions)
-                .AddScoped<IRepository<Setting>>(s => new SettingsRepository(appSettingsManagerOptions.DatabaseSettings.FolderPath,
+                .AddScoped<IRepository<Setting>>(s => new Repository<Setting>(appSettingsManagerOptions.DatabaseSettings.FolderPath,
                 appSettingsManagerOptions.DatabaseSettings.FileName))
                 .AddScoped<ISettingsService, SettingsService>()
                 .AddScoped<IHistoryService, HistoryService>();

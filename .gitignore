@@ -36,3 +36,6 @@ AppSettingsManager461.TestClient/Scripts
 AppSettingsManager.Setup/obj
 AppSettingsManager.Setup/bin
 AppSettingsManager.UI/node_modules
+AppSettingsManager.Exceptions/bin
+AppSettingsManager.Exceptions/obj
+AppSettingsManager.TestClient/wwwroot

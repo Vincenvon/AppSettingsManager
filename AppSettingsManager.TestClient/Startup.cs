@@ -33,9 +33,8 @@ namespace AppSettingsManager.TestClient
             app
                 .UseStaticFiles(new StaticFileOptions
                 {
-                    FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "AsmContent")),
-                    RequestPath = "/asmcontent"
-                })
+                    ServeUnknownFileTypes = true
+                }) 
                 .UseAppSettingsManager();
 
             if (env.IsDevelopment())

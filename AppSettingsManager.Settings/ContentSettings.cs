@@ -2,16 +2,16 @@
 {
     public class ContentSettings
     {
-        public string ImagesFolderPath { get; set; }
+        public string HtmlFolderPath { get; set; } = "wwwroot";
 
-        public string ImagesRequestPath { get; set; }
+        public string HtmlRequestPath { get; set; } = "";
 
-        public string JsFolderPath { get; set; }
+        public string ImagesFolderPath { get; set; } = @"wwwroot\images";
 
-        public string JsRequestPath { get; set; }
+        public string ImagesRequestPath { get; set; } = "images";
 
-        public string HtmlFolderPath { get; set; }
+        public string JsFolderPath { get; set; } = @"wwwroot\js";
 
-        public string HtmlRequestPath { get; set; }
+        public string JsRequestPath { get; set; } = "js";
     }
 }
