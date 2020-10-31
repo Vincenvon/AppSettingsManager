@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 
 namespace AppSettingsManager.DataAccess
 {
-    public class Repository<T>: IRepository<T> where T: Entity
+    public class Repository<T> : IRepository<T> where T : Entity
     {
         private readonly string _connectionString;
 
@@ -77,6 +77,16 @@ namespace AppSettingsManager.DataAccess
                 return liteDatabase.GetCollection<Setting>().Count(query);
             }
         }
+
+        public T Update(T entity)
+        {
+            using (var liteDatabase = this.GetLiteDatabase())
+            {
+                var result = liteDatabase.GetCollection<T>().Update(entity);
+                return entity;
+            }
+        }
+
 
         private ILiteDatabase GetLiteDatabase()
         {

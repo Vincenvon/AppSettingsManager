@@ -15,7 +15,7 @@ const Layout = () => {
                 <S.HeaderContainer>
                     <Typography component="h1" variant="h6" noWrap>
                         Application Manager
-                </Typography>
+                    </Typography>
                 </S.HeaderContainer>
                 <S.ContentContainer>
                     <Switch>

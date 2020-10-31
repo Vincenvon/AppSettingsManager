@@ -8,6 +8,7 @@ namespace AppSettingsManager.Setup
         {
             await ContentSetuper.SetupAsync(settings.ContentSettings);
             await DatabaseSetuper.SetupAsync(settings.DatabaseSettings);
+            await UserSetuper.SetupAsync(settings);
         }
     }
 }

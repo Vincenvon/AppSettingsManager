@@ -2,17 +2,30 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     margin-top: 16px;
-    ::before{
+    color: rgba(0,0,0,.87);
+    cursor: text;
+    display: inline-flex;
+    position: relative;
+    font-size: 1rem;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    line-height: 1.1876em;
+    letter-spacing: .00938em;
+
+    :before {
         left: 0;
         right: 0;
         bottom: 0;
-        content: "\00a0";
+        content: "\\00a0";
         position: absolute;
         transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         border-bottom: 1px solid rgba(0, 0, 0, 0.42);
         pointer-events: none;
     }
-    ::after {
+
+    :after {
         left: 0;
         right: 0;
         bottom: 0;

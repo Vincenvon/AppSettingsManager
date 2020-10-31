@@ -18,8 +18,10 @@ namespace AppSettingsManager.DataAccess
 
         IEnumerable<T> Read(Query query, int skip, int limit);
 
+        T Update(T entity);
+
         int Count(Query query);
 
-        T Create(T setting);
+        T Create(T entity);
     }
 }
