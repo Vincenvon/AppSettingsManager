@@ -15,7 +15,7 @@ function* watchSignIn({ login }) {
 }
 
 function* watchSignInSuccess({ token }) {
-    yield call(window.localStorage.setItem, 'token', token);
+    window.localStorage.setItem('token', token);
     yield put(push('/'));
 }
 

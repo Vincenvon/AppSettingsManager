@@ -5,13 +5,16 @@ import getAppReducer from './reducers'
 import { routerMiddleware } from 'connected-react-router'
 import rootSaga from './sagas'
 
-export const history = createHashHistory()
+export const history = createHashHistory();
 
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 
-export const store = createStore(
-    getAppReducer(history),
-    compose(applyMiddleware(sagaMiddleware, routerMiddleware))
-)
+export const configureStore = () => {
+    const middlewares = [sagaMiddleware, routerMiddleware(history)];
+    const rootReducer = getAppReducer(history);
+    const store = createStore(rootReducer, applyMiddleware(...middlewares));
 
-sagaMiddleware.run(rootSaga);
+    sagaMiddleware.run(rootSaga);
+
+    return { store };
+};
