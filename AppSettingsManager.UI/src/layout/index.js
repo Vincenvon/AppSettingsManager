@@ -1,31 +1,35 @@
-import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import { Settings, History, Login } from 'root/pages';
-import * as S from './styled';
-import Menu from '../layout/Menu';
 import { Route, Switch } from 'react-router-dom';
+import WhiteTextTypography from 'root/components/Typography';
+import { History, Login, Settings } from 'root/pages';
+import Menu from '../layout/Menu';
+import * as S from './styled';
 
 const Layout = () => {
     return (
         <S.Main>
-            <S.MenuContainer>
-                <Menu />
-            </S.MenuContainer>
-            <S.BodyContainer>
-                <S.HeaderContainer>
-                    <Typography component="h1" variant="h6" noWrap>
-                        Application Manager
-                    </Typography>
-                </S.HeaderContainer>
-                <S.ContentContainer>
-                    <Switch>
-                        <Route path="/history" component={History} exact />
-                        <Route path="/login" component={Login} exact />
-                        <Route path="/" component={Settings} exact />
-                        <Route path="*" render={() => <p>Not Found</p>} />
-                    </Switch>
-                </S.ContentContainer>
-            </S.BodyContainer>
+            <Switch>
+                <Route path="/login" component={Login} exact />
+                <Route path="*" render={() => {
+                    return <>
+                        <S.MenuContainer>
+                            <Menu />
+                        </S.MenuContainer>
+                        <S.BodyContainer>
+                            <S.HeaderContainer>
+                                <WhiteTextTypography component="h1" variant="h6" css noWrap> Application Manager</WhiteTextTypography>
+                            </S.HeaderContainer>
+                            <S.ContentContainer>
+                                <Switch>
+                                    <Route path="/history" component={History} exact />
+                                    <Route path="/" component={Settings} exact />
+                                    <Route path="*" render={() => <p>Not Found</p>} />
+                                </Switch>
+                            </S.ContentContainer>
+                        </S.BodyContainer>
+                    </>
+                }} exact />
+            </Switch>
         </S.Main>
     );
 }
