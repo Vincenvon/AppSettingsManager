@@ -25,7 +25,7 @@ const Settings = ({ isLoading, data, settingsReadStart, settingsUpdateStart }) =
 
     const handleSubmitClick = () => {
         const json = jsonEditor.get();
-        settingsUpdateStart({ data: { json: JSON.stringify(json) } });
+        settingsUpdateStart({ data: { json: JSON.stringify(json, null, 2) } });
     };
 
     return (

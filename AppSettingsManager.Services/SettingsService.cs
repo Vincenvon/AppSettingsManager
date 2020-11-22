@@ -3,8 +3,6 @@ using AppSettingsManager.Entities;
 using AppSettingsManager.Requests;
 using AppSettingsManager.Responses;
 
-using Newtonsoft.Json;
-
 using System;
 using System.IO;
 

@@ -5,16 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="AsmDb\ReadMe.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="AsmDb\ReadMe.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="LiteDB" Version="5.0.8" />
   </ItemGroup>
 

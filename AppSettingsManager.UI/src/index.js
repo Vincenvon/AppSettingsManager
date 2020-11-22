@@ -2,15 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import Layout from './layout';
-import { store } from './redux';
-import { HashRouter } from 'react-router-dom';
+import { configureStore, history } from './redux';
+import { ConnectedRouter } from 'connected-react-router'
 
 const render = () => {
+    const { store } = configureStore();
+
     ReactDOM.render(
         <Provider store={store}>
-            <HashRouter>
+            <ConnectedRouter history={history}>
                 <Layout />
-            </HashRouter>
+            </ConnectedRouter>
         </Provider>,
         document.getElementById('application'),
     );

@@ -5,12 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="6.0.4" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.7.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AppSettingsManager.DataAccess\AppSettingsManager.DataAccess.csproj" />
     <ProjectReference Include="..\AppSettingsManager.Entities\AppSettingsManager.Entities.csproj" />
+    <ProjectReference Include="..\AppSettingsManager.Exceptions\AppSettingsManager.Exceptions.csproj" />
     <ProjectReference Include="..\AppSettingsManager.Requests\AppSettingsManager.Requests.csproj" />
     <ProjectReference Include="..\AppSettingsManager.Responses\AppSettingsManager.Responses.csproj" />
     <ProjectReference Include="..\AppSettingsManager.Settings\AppSettingsManager.Settings.csproj" />

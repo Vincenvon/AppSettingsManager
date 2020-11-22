@@ -1,10 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AppSettingsManager.DataAccess\AppSettingsManager.DataAccess.csproj" />
+    <ProjectReference Include="..\AppSettingsManager.Entities\AppSettingsManager.Entities.csproj" />
     <ProjectReference Include="..\AppSettingsManager.Settings\AppSettingsManager.Settings.csproj" />
     <ProjectReference Include="..\AppSettingsManager.UI\AppSettingsManager.UI.csproj" />
   </ItemGroup>

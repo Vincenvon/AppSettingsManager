@@ -1,10 +1,14 @@
+import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
-import { settings } from './settings';
 import { history } from './history';
+import { login } from './login';
+import { settings } from './settings';
 
-const appReducer = combineReducers({
+const getAppReducer = historyRouter => combineReducers({
     settings,
     history,
+    login,
+    router: connectRouter(historyRouter),
 })
 
-export default appReducer;
+export default getAppReducer;

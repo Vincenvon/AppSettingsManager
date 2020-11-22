@@ -1,11 +1,13 @@
 ﻿using AppSettingsManager.Requests;
 using AppSettingsManager.Services;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppSettingsManager.Controllers
 {
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [Route("api/[controller]")]
     public class SettingsController : Controller
     {
